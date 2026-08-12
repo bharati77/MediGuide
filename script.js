@@ -1,8 +1,49 @@
+const doctors = {
+    "General Medicine": {
+        name: "Dr. Sharma",
+        days: "Monday - Friday",
+        time: "10:00 AM - 1:00 PM"
+    },
+
+    "Dermatology": {
+        name: "Dr. Priya",
+        days: "Monday, Wednesday, Friday",
+        time: "4:00 PM - 7:00 PM"
+    },
+
+    "Cardiology": {
+        name: "Dr. Amit",
+        days: "Tuesday - Saturday",
+        time: "9:00 AM - 12:00 PM"
+    },
+
+    "Ophthalmology": {
+        name: "Dr. Neha",
+        days: "Monday - Thursday",
+        time: "11:00 AM - 2:00 PM"
+    },
+
+    "ENT": {
+        name: "Dr. Rahul",
+        days: "Tuesday, Thursday, Saturday",
+        time: "3:00 PM - 6:00 PM"
+    },
+
+    "Pediatrics": {
+        name: "Dr. Anjali",
+        days: "Monday - Friday",
+        time: "5:00 PM - 8:00 PM"
+    }
+};
+
+
 function startGuidance() {
 
     alert("Welcome to MediGuide! Healthcare guidance starts here.");
 
 }
+
+
 function findGuidance() {
 
     let concern = document
@@ -57,6 +98,8 @@ function findGuidance() {
 
     }
 }
+
+
 function showSpecialists() {
 
     let result = document.getElementById("specialistResult");
@@ -73,6 +116,8 @@ function showSpecialists() {
         </ul>
     `;
 }
+
+
 function showHospitals() {
 
     let result = document.getElementById("hospitalResult");
@@ -93,6 +138,8 @@ function showHospitals() {
         </div>
     `;
 }
+
+
 function bookAppointment(event) {
 
     event.preventDefault();
@@ -103,14 +150,37 @@ function bookAppointment(event) {
 
     let result = document.getElementById("appointmentResult");
 
-    result.innerHTML = `
-        <h3>Appointment Request Submitted</h3>
-        <p><strong>Patient:</strong> ${name}</p>
-        <p><strong>Department:</strong> ${department}</p>
-        <p><strong>Date:</strong> ${date}</p>
-        <p>Your appointment request has been recorded for this demo.</p>
-    `;
+    let doctor = doctors[department];
+
+    if (doctor) {
+
+        result.innerHTML = `
+            <h3>Appointment Request Submitted</h3>
+
+            <p><strong>Patient:</strong> ${name}</p>
+
+            <p><strong>Department:</strong> ${department}</p>
+
+            <p><strong>Doctor:</strong> ${doctor.name}</p>
+
+            <p><strong>Date:</strong> ${date}</p>
+
+            <p><strong>Doctor Available:</strong> ${doctor.days}</p>
+
+            <p><strong>Visiting Hours:</strong> ${doctor.time}</p>
+
+            <p>Your appointment request has been recorded for this demo.</p>
+        `;
+
+    } else {
+
+        result.innerHTML = `
+            <p>Doctor information is not available for this department.</p>
+        `;
+    }
 }
+
+
 function showEmergency() {
 
     let result = document.getElementById("emergencyResult");
