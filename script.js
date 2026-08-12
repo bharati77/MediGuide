@@ -1,3 +1,8 @@
+// ===============================
+// MediGuide - JavaScript
+// ===============================
+
+// Doctor information
 const doctors = {
     "General Medicine": {
         name: "Dr. Sharma",
@@ -37,6 +42,10 @@ const doctors = {
 };
 
 
+// ===============================
+// Start Guidance
+// ===============================
+
 function startGuidance() {
 
     alert("Welcome to MediGuide! Healthcare guidance starts here.");
@@ -44,54 +53,96 @@ function startGuidance() {
 }
 
 
+// ===============================
+// Find Healthcare Guidance
+// ===============================
+
 function findGuidance() {
 
-    let concern = document
-        .getElementById("healthConcern")
-        .value
-        .toLowerCase();
+    const healthConcern = document.getElementById("healthConcern");
+    const result = document.getElementById("guidanceResult");
 
-    let result = document.getElementById("guidanceResult");
+    if (!healthConcern || !result) {
+        return;
+    }
+
+    const concern = healthConcern.value.trim().toLowerCase();
 
     if (concern === "") {
 
-        result.innerHTML = "Please enter your health concern.";
+        result.innerHTML =
+            "Please enter your health concern.";
 
-    } else if (
+    }
+
+    else if (
         concern.includes("skin") ||
         concern.includes("rash") ||
-        concern.includes("acne")
+        concern.includes("acne") ||
+        concern.includes("pimple")
     ) {
 
         result.innerHTML =
             "Suggested Department: Dermatology";
 
-    } else if (
+    }
+
+    else if (
         concern.includes("eye") ||
-        concern.includes("vision")
+        concern.includes("vision") ||
+        concern.includes("eyes")
     ) {
 
         result.innerHTML =
             "Suggested Department: Ophthalmology";
 
-    } else if (
+    }
+
+    else if (
         concern.includes("ear") ||
-        concern.includes("throat")
+        concern.includes("throat") ||
+        concern.includes("nose")
     ) {
 
         result.innerHTML =
             "Suggested Department: ENT";
 
-    } else if (
+    }
+
+    else if (
         concern.includes("fever") ||
         concern.includes("cold") ||
-        concern.includes("cough")
+        concern.includes("cough") ||
+        concern.includes("headache")
     ) {
 
         result.innerHTML =
             "Suggested Department: General Medicine";
 
-    } else {
+    }
+
+    else if (
+        concern.includes("heart") ||
+        concern.includes("chest pain")
+    ) {
+
+        result.innerHTML =
+            "Suggested Department: Cardiology";
+
+    }
+
+    else if (
+        concern.includes("child") ||
+        concern.includes("baby") ||
+        concern.includes("pediatric")
+    ) {
+
+        result.innerHTML =
+            "Suggested Department: Pediatrics";
+
+    }
+
+    else {
 
         result.innerHTML =
             "No matching category found. Please consult a qualified healthcare professional.";
@@ -100,12 +151,21 @@ function findGuidance() {
 }
 
 
+// ===============================
+// Show Specialists
+// ===============================
+
 function showSpecialists() {
 
-    let result = document.getElementById("specialistResult");
+    const result = document.getElementById("specialistResult");
+
+    if (!result) {
+        return;
+    }
 
     result.innerHTML = `
         <h4>Available Departments</h4>
+
         <ul>
             <li>General Medicine</li>
             <li>Dermatology</li>
@@ -118,72 +178,155 @@ function showSpecialists() {
 }
 
 
+// ===============================
+// Show Hospitals
+// ===============================
+
 function showHospitals() {
 
-    let result = document.getElementById("hospitalResult");
+    const result = document.getElementById("hospitalResult");
+
+    if (!result) {
+        return;
+    }
 
     result.innerHTML = `
         <div class="hospital">
+
             <h3>City Care Hospital</h3>
-            <p>Location: Nagpur</p>
-            <p>Departments: General Medicine, Dermatology, Cardiology</p>
-            <p>Contact: 00000 00000</p>
+
+            <p>
+                <strong>Location:</strong> Nagpur
+            </p>
+
+            <p>
+                <strong>Departments:</strong>
+                General Medicine, Dermatology, Cardiology
+            </p>
+
+            <p>
+                <strong>Contact:</strong>
+                00000 00000
+            </p>
+
         </div>
 
         <div class="hospital">
+
             <h3>Health Plus Hospital</h3>
-            <p>Location: Nagpur</p>
-            <p>Departments: Pediatrics, ENT, Ophthalmology</p>
-            <p>Contact: 00000 00000</p>
+
+            <p>
+                <strong>Location:</strong> Nagpur
+            </p>
+
+            <p>
+                <strong>Departments:</strong>
+                Pediatrics, ENT, Ophthalmology
+            </p>
+
+            <p>
+                <strong>Contact:</strong>
+                00000 00000
+            </p>
+
         </div>
     `;
 }
 
 
+// ===============================
+// Book Appointment
+// ===============================
+
 function bookAppointment(event) {
 
     event.preventDefault();
 
-    let name = document.getElementById("patientName").value;
-    let department = document.getElementById("department").value;
-    let date = document.getElementById("appointmentDate").value;
+    const name = document.getElementById("patientName").value.trim();
+    const department = document.getElementById("department").value;
+    const date = document.getElementById("appointmentDate").value;
 
-    let result = document.getElementById("appointmentResult");
+    const result = document.getElementById("appointmentResult");
 
-    let doctor = doctors[department];
+    if (!result) {
+        return;
+    }
+
+    if (name === "" || department === "" || date === "") {
+
+        result.innerHTML = `
+            <p>
+                Please fill in all appointment details.
+            </p>
+        `;
+
+        return;
+    }
+
+    const doctor = doctors[department];
 
     if (doctor) {
 
         result.innerHTML = `
             <h3>Appointment Request Submitted</h3>
 
-            <p><strong>Patient:</strong> ${name}</p>
+            <p>
+                <strong>Patient:</strong>
+                ${name}
+            </p>
 
-            <p><strong>Department:</strong> ${department}</p>
+            <p>
+                <strong>Department:</strong>
+                ${department}
+            </p>
 
-            <p><strong>Doctor:</strong> ${doctor.name}</p>
+            <p>
+                <strong>Date:</strong>
+                ${date}
+            </p>
 
-            <p><strong>Date:</strong> ${date}</p>
+            <p>
+                <strong>Doctor:</strong>
+                ${doctor.name}
+            </p>
 
-            <p><strong>Doctor Available:</strong> ${doctor.days}</p>
+            <p>
+                <strong>Available Days:</strong>
+                ${doctor.days}
+            </p>
 
-            <p><strong>Visiting Hours:</strong> ${doctor.time}</p>
+            <p>
+                <strong>Visiting Hours:</strong>
+                ${doctor.time}
+            </p>
 
-            <p>Your appointment request has been recorded for this demo.</p>
+            <p>
+                Your appointment request has been recorded for this demo.
+            </p>
         `;
 
     } else {
 
         result.innerHTML = `
-            <p>Doctor information is not available for this department.</p>
+            <p>
+                Doctor information is not available for this department.
+            </p>
         `;
     }
 }
 
 
+// ===============================
+// Emergency Guidance
+// ===============================
+
 function showEmergency() {
 
-    let result = document.getElementById("emergencyResult");
+    const result = document.getElementById("emergencyResult");
+
+    if (!result) {
+        return;
+    }
 
     result.innerHTML = `
         <h3>⚠️ Important</h3>
