@@ -342,24 +342,31 @@ function showEmergency() {
         </p>
     `;
 }
-<!-- Token System -->
-<section id="tokens">
+// ===============================
+// Patient Token System
+// ===============================
 
-    <h2>🎟️ Patient Token System</h2>
+let currentToken = 0;
+let myToken = null;
 
-    <p>Take a token and check your position in the queue.</p>
+function takeToken() {
+    currentToken++;
+    myToken = currentToken;
 
-    <button onclick="takeToken()">Take My Token</button>
+    document.getElementById("currentToken").textContent = currentToken;
 
-    <div id="tokenResult"></div>
+    document.getElementById("tokenResult").innerHTML =
+        "Your token number is: <strong>" + myToken + "</strong>";
+}
 
-    <hr>
+function checkToken() {
+    const status = document.getElementById("tokenStatus");
 
-    <h3>Current Token: <span id="currentToken">0</span></h3>
-
-    <button onclick="checkToken()">Check My Token</button>
-
-    <div id="tokenStatus"></div>
-
-</section>
-margin: 0 12px;
+    if (myToken === null) {
+        status.textContent = "Please take a token first.";
+    } else {
+        status.textContent =
+            "Your token is " + myToken +
+            ". Current token is " + currentToken + ".";
+    }
+}
