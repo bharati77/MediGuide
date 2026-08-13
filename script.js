@@ -362,3 +362,4 @@ function showEmergency() {
     <div id="tokenStatus"></div>
 
 </section>
+margin: 0 12px;
