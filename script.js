@@ -342,3 +342,23 @@ function showEmergency() {
         </p>
     `;
 }
+<!-- Token System -->
+<section id="tokens">
+
+    <h2>🎟️ Patient Token System</h2>
+
+    <p>Take a token and check your position in the queue.</p>
+
+    <button onclick="takeToken()">Take My Token</button>
+
+    <div id="tokenResult"></div>
+
+    <hr>
+
+    <h3>Current Token: <span id="currentToken">0</span></h3>
+
+    <button onclick="checkToken()">Check My Token</button>
+
+    <div id="tokenStatus"></div>
+
+</section>
