@@ -230,3 +230,12 @@ nav {
 nav a {
     white-space: nowrap;
 }
+nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+nav a {
+    white-space: nowrap;
+}
