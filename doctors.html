@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Doctors | Government Hospital</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🏥 <span>Government Hospital</span>
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <nav id="navbar">
+
+        <a href="index.html">Home</a>
+        <a href="doctors.html" class="active">Doctors</a>
+        <a href="departments.html">Departments</a>
+        <a href="appointment.html">Token</a>
+        <a href="notices.html">Notices</a>
+        <a href="contact.html">Contact</a>
+
+    </nav>
+
+</header>
+
+
+<section class="page-header">
+
+    <h1>👨‍⚕️ Doctor Availability</h1>
+
+    <p>
+        Check today's doctor availability and OPD information.
+    </p>
+
+</section>
+
+
+<section class="section">
+
+    <div class="doctor-search">
+
+        <input
+            type="text"
+            id="doctorSearch"
+            placeholder="🔍 Search doctor or department..."
+            onkeyup="filterDoctors()"
+        >
+
+        <select id="statusFilter" onchange="filterDoctors()">
+
+            <option value="all">All Status</option>
+            <option value="available">Available</option>
+            <option value="break">On Break</option>
+            <option value="leave">On Leave</option>
+            <option value="unavailable">Not Available</option>
+
+        </select>
+
+    </div>
+
+
+    <div class="doctor-grid" id="doctorList">
+
+
+        <div class="doctor-card doctor-item"
+             data-name="rahul patil medicine"
+             data-status="available">
+
+            <div class="doctor-photo">👨‍⚕️</div>
+
+            <h3>Dr. Rahul Patil</h3>
+
+            <p>Medicine</p>
+
+            <span class="status available">
+                ● Available
+            </span>
+
+            <div class="doctor-info">
+
+                <p>Qualification: MBBS, MD</p>
+                <p>🕘 9:00 AM - 1:00 PM</p>
+                <p>🚪 Room 101</p>
+                <p>🎫 Current Token: 25</p>
+
+            </div>
+
+            <a href="appointment.html" class="small-btn">
+                Get Token
+            </a>
+
+        </div>
+
+
+        <div class="doctor-card doctor-item"
+             data-name="sneha joshi gynecology"
+             data-status="unavailable">
+
+            <div class="doctor-photo">👩‍⚕️</div>
+
+            <h3>Dr. Sneha Joshi</h3>
+
+            <p>Gynecology</p>
+
+            <span class="status unavailable">
+                ● Not Available
+            </span>
+
+            <div class="doctor-info">
+
+                <p>Qualification: MBBS, MD</p>
+                <p>🕘 10:00 AM - 2:00 PM</p>
+                <p>🚪 Room 102</p>
+                <p>🎫 Current Token: 0</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="doctor-card doctor-item"
+             data-name="amit shah orthopedic"
+             data-status="break">
+
+            <div class="doctor-photo">👨‍⚕️</div>
+
+            <h3>Dr. Amit Shah</h3>
+
+            <p>Orthopedic</p>
+
+            <span class="status break">
+                ● On Break
+            </span>
+
+            <div class="doctor-info">
+
+                <p>Qualification: MBBS, MS</p>
+                <p>🕘 9:00 AM - 1:00 PM</p>
+                <p>🚪 Room 103</p>
+                <p>🎫 Current Token: 18</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="doctor-card doctor-item"
+             data-name="priya deshmukh pediatrics"
+             data-status="available">
+
+            <div class="doctor-photo">👩‍⚕️</div>
+
+            <h3>Dr. Priya Deshmukh</h3>
+
+            <p>Pediatrics</p>
+
+            <span class="status available">
+                ● Available
+            </span>
+
+            <div class="doctor-info">
+
+                <p>Qualification: MBBS, DCH</p>
+                <p>🕘 9:30 AM - 1:30 PM</p>
+                <p>🚪 Room 105</p>
+                <p>🎫 Current Token: 12</p>
+
+            </div>
+
+            <a href="appointment.html" class="small-btn">
+                Get Token
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>🏥 Government Hospital</h3>
+
+    <p>
+        Doctor Availability & Patient Information System
+    </p>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
