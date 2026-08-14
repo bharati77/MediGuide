@@ -77,8 +77,7 @@ function filterDoctors() {
 
 
 // TOKEN GENERATOR
-
-function generateToken(event) {
+async function generateToken(event) {
 
     event.preventDefault();
 
@@ -91,69 +90,89 @@ function generateToken(event) {
     const doctor =
         document.getElementById("doctor").value;
 
-    const token =
-        Math.floor(Math.random() * 50) + 1;
-
     const result =
         document.getElementById("tokenResult");
 
-    result.innerHTML = `
+    try {
 
-        <div style="
-            background:#e5f7eb;
-            padding:20px;
-            border-radius:10px;
-        ">
+        const response = await fetch(
+            "https://mediguide-backend-1exq.onrender.com/api/token",
+            {
+                method: "POST",
 
-            <h2>🎫 Token Generated</h2>
+                headers: {
+                    "Content-Type": "application/json"
+                },
 
-            <h1>${token}</h1>
+                body: JSON.stringify({
+                    name: name,
+                    department: department,
+                    doctor: doctor
+                })
+            }
+        );
 
-            <p>
-                Patient:
-                <b>${name}</b>
-            </p>
+        const data = await response.json();
 
-            <p>
-                Department:
-                <b>${department}</b>
-            </p>
+        if (!response.ok) {
+            throw new Error(
+                data.message || "Token generation failed"
+            );
+        }
 
-            <p>
-                Doctor:
-                <b>${doctor}</b>
-            </p>
+        result.innerHTML = `
 
-            <p>
-                Please wait for your token number.
-            </p>
+            <div style="
+                background:#e5f7eb;
+                padding:20px;
+                border-radius:10px;
+            ">
 
-        </div>
+                <h2>🎫 Token Generated</h2>
 
-    `;
+                <h1>${data.token}</h1>
 
-}
+                <p>
+                    Patient:
+                    <b>${name}</b>
+                </p>
 
+                <p>
+                    Department:
+                    <b>${department}</b>
+                </p>
 
-// READ SEARCH FROM URL
+                <p>
+                    Doctor:
+                    <b>${doctor}</b>
+                </p>
 
-window.addEventListener("DOMContentLoaded", function() {
+                <p>
+                    Please wait for your token number.
+                </p>
 
-    const params =
-        new URLSearchParams(window.location.search);
+            </div>
 
-    const search =
-        params.get("search");
+        `;
 
-    const input =
-        document.getElementById("doctorSearch");
+    } catch (error) {
 
-    if (search && input) {
+        result.innerHTML = `
 
-        input.value = search;
+            <div style="
+                background:#ffe5e5;
+                padding:20px;
+                border-radius:10px;
+            ">
 
-        filterDoctors();
+                <h2>❌ Error</h2>
+
+                <p>${error.message}</p>
+
+            </div>
+
+        `;
 
     }
 
-});
+}
