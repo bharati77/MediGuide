@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Get Token</title>
+
+<link rel="stylesheet"
+href="css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+🏥 <span>Government Hospital</span>
+</div>
+
+<button class="menu-btn"
+onclick="toggleMenu()">☰</button>
+
+<nav id="navbar">
+
+<a href="index.html">Home</a>
+<a href="doctors.html">Doctors</a>
+<a href="departments.html">Departments</a>
+<a href="appointment.html"
+class="active">Token</a>
+<a href="notices.html">Notices</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+</header>
+
+
+<section class="page-header">
+
+<h1>🎫 Patient Token</h1>
+
+<p>Request a token for today's OPD</p>
+
+</section>
+
+
+<section class="form-section">
+
+<div class="form-card">
+
+<h2>Get Your Token</h2>
+
+<form id="tokenForm"
+onsubmit="generateToken(event)">
+
+<label>Patient Name</label>
+
+<input
+type="text"
+id="patientName"
+required
+placeholder="Enter your name">
+
+
+<label>Mobile Number</label>
+
+<input
+type="tel"
+id="mobile"
+required
+placeholder="Enter mobile number">
+
+
+<label>Department</label>
+
+<select id="department" required>
+
+<option value="">Select Department</option>
+
+<option>Medicine</option>
+
+<option>Orthopedic</option>
+
+<option>Pediatrics</option>
+
+<option>Gynecology</option>
+
+<option>ENT</option>
+
+<option>Dental</option>
+
+</select>
+
+
+<label>Doctor</label>
+
+<select id="doctor" required>
+
+<option value="">Select Doctor</option>
+
+<option>Dr. Rahul Patil</option>
+
+<option>Dr. Sneha Joshi</option>
+
+<option>Dr. Amit Shah</option>
+
+<option>Dr. Priya Deshmukh</option>
+
+</select>
+
+
+<button class="btn primary full">
+Generate Token
+</button>
+
+</form>
+
+
+<div id="tokenResult"
+class="token-result">
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<h3>🏥 Government Hospital</h3>
+
+<p>Patient Token System</p>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
