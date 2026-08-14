@@ -1,278 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MediGuide - Healthcare Guidance</title>
+    <title>Government Hospital | Doctor Availability</title>
 
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header>
+<header>
+    <div class="logo">
+        🏥 <span>Government Hospital</span>
+    </div>
 
-        <h1>🩺 MediGuide</h1>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-        <p>Your Healthcare Guidance Companion</p>
+    <nav id="navbar">
+        <a href="index.html" class="active">Home</a>
+        <a href="doctors.html">Doctors</a>
+        <a href="departments.html">Departments</a>
+        <a href="appointment.html">Token</a>
+        <a href="notices.html">Notices</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
-    </header>
 
+<!-- HERO -->
 
-    <!-- Navigation Bar -->
-<nav>
+<section class="hero">
 
-    <a href="index.html">Home</a>
+    <div class="hero-text">
 
-    <a href="health-guidance.html">Health Guidance</a>
+        <span class="tag">🏥 Digital Hospital Service</span>
 
-    <a href="services.html">Services</a>
-
-    <a href="doctors.html">Doctors</a>
-
-    <a href="hospitals.html">Hospitals</a>
-
-    <a href="cleaning.html">Cleaning</a>
-
-    <a href="appointment.html">Appointment</a>
-
-    <a href="patient-token.html">Patient Token</a>
-
-    <a href="token.html">Token</a>
-
-    <a href="emergency.html">Emergency</a>
-
-</nav>
-
-    <!-- Home Section -->
-    <section id="home" class="hero">
-
-        <h2>Welcome to MediGuide</h2>
+        <h1>
+            Check Doctor
+            <span>Availability</span>
+            Before You Visit
+        </h1>
 
         <p>
-            Get guidance about healthcare services,
-            medical departments and specialists.
+            Check doctor availability, OPD timings, departments
+            and token information online.
         </p>
 
-        <button onclick="startGuidance()">
-            Get Started
+        <div class="hero-buttons">
+
+            <a href="doctors.html" class="btn primary">
+                Check Doctors
+            </a>
+
+            <a href="appointment.html" class="btn secondary">
+                Get Token
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-card">
+
+        <div class="hospital-icon">🏥</div>
+
+        <h2>Today's Status</h2>
+
+        <div class="status-row">
+            <span>Available Doctors</span>
+            <strong class="green">28</strong>
+        </div>
+
+        <div class="status-row">
+            <span>On Break</span>
+            <strong class="yellow">04</strong>
+        </div>
+
+        <div class="status-row">
+            <span>On Leave</span>
+            <strong class="red">07</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<section class="search-section">
+
+    <h2>Find a Doctor</h2>
+
+    <p>Search by doctor name or department</p>
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="homeSearch"
+            placeholder="🔍 Search doctor or department..."
+        >
+
+        <button onclick="searchDoctor()">
+            Search
         </button>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- Services Section -->
-    <section id="guidance">
+<!-- FEATURES -->
 
-    <h2>🔎 Health Concern Guidance</h2>
+<section class="section">
 
-    <p>Enter your health concern to get general guidance.</p>
-
-    <input
-        type="text"
-        id="healthConcern"
-        placeholder="Example: skin problem"
-    >
-
-    <button onclick="findGuidance()">
-        Get Guidance
-    </button>
-
-    <div id="guidanceResult"></div>
-
-</section><section id="services">
-
+    <div class="section-title">
         <h2>Our Services</h2>
+        <p>Useful information for patients</p>
+    </div>
 
-        <div class="cards">
+    <div class="feature-grid">
 
-            <div class="card">
+        <div class="feature-card">
+            <div class="feature-icon">👨‍⚕️</div>
+            <h3>Doctor Availability</h3>
+            <p>Check whether a doctor is available before visiting.</p>
+            <a href="doctors.html">View Doctors →</a>
+        </div>
 
-                <h3>🔎 Health Guidance</h3>
+        <div class="feature-card">
+            <div class="feature-icon">🎫</div>
+            <h3>Online Token</h3>
+            <p>Check token information and reduce waiting time.</p>
+            <a href="appointment.html">Get Token →</a>
+        </div>
 
-                <p>
-                    Search your health concern and
-                    get general healthcare guidance.
-                </p>
+        <div class="feature-card">
+            <div class="feature-icon">🏥</div>
+            <h3>Departments</h3>
+            <p>Find departments and their OPD timings.</p>
+            <a href="departments.html">View Departments →</a>
+        </div>
 
-            </div>
+        <div class="feature-card">
+            <div class="feature-icon">📢</div>
+            <h3>Hospital Notices</h3>
+            <p>View important hospital announcements.</p>
+            <a href="notices.html">View Notices →</a>
+        </div>
 
-<div class="card">
+    </div>
 
-    <h3>👨‍⚕️ Find Specialist</h3>
-
-    <p>
-        Find the appropriate medical department
-        for your health concern.
-    </p>
-
-    <button onclick="showSpecialists()">
-        View Specialists
-    </button>
-
-    <div id="specialistResult"></div>
-
-</div>
-
-
-            <div class="card">
-
-                <h3>🏥 Find Hospital</h3>
-
-                <p>
-                    View hospital information and
-                    available healthcare services.
-                </p>
-
-            </div>
+</section>
 
 
-            <div class="card">
+<!-- DOCTORS -->
 
-                <h3>📅 Appointment</h3>
+<section class="section light">
 
-                <p>
-                    Submit an appointment request
-                    with a healthcare provider.
-                </p>
+    <div class="section-title">
+        <h2>Today's Doctor Availability</h2>
+        <p>Live status shown by authorized hospital staff</p>
+    </div>
 
+    <div class="doctor-grid">
+
+        <div class="doctor-card">
+
+            <div class="doctor-photo">👨‍⚕️</div>
+
+            <h3>Dr. Rahul Patil</h3>
+
+            <p>Medicine</p>
+
+            <span class="status available">
+                ● Available
+            </span>
+
+            <div class="doctor-info">
+                <p>🕘 9:00 AM - 1:00 PM</p>
+                <p>🚪 Room 101</p>
+                <p>🎫 Current Token: 25</p>
             </div>
 
         </div>
 
-    </section>
-    
-    <!-- Token System -->
-<section id="tokens">
 
-    <h2>🎟️ Patient Token System</h2>
+        <div class="doctor-card">
 
-    <p>Take a token and check your position in the queue.</p>
+            <div class="doctor-photo">👩‍⚕️</div>
 
-    <button onclick="takeToken()">Take My Token</button>
+            <h3>Dr. Sneha Joshi</h3>
 
-    <div id="tokenResult"></div>
+            <p>Gynecology</p>
 
-    <hr>
+            <span class="status unavailable">
+                ● Not Available
+            </span>
 
-    <h3>Current Token: <span id="currentToken">0</span></h3>
+            <div class="doctor-info">
+                <p>🕘 10:00 AM - 2:00 PM</p>
+                <p>🚪 Room 102</p>
+                <p>🎫 Current Token: 0</p>
+            </div>
 
-    <button onclick="checkToken()">Check My Token</button>
+        </div>
 
-    <div id="tokenStatus"></div>
+
+        <div class="doctor-card">
+
+            <div class="doctor-photo">👨‍⚕️</div>
+
+            <h3>Dr. Amit Shah</h3>
+
+            <p>Orthopedic</p>
+
+            <span class="status break">
+                ● On Break
+            </span>
+
+            <div class="doctor-info">
+                <p>🕘 9:00 AM - 1:00 PM</p>
+                <p>🚪 Room 103</p>
+                <p>🎫 Current Token: 18</p>
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-    <!-- About Section -->
-    <section id="hospitals">
+<!-- EMERGENCY -->
 
-    <h2>🏥 Find Hospital</h2>
+<section class="emergency">
 
-    <p>
-        View sample hospital information and available departments.
-    </p>
-
-    <button onclick="showHospitals()">
-        View Hospitals
-    </button>
-
-    <div id="hospitalResult"></div>
-
-</section>
-<section id="appointment">
-
-    <h2>📅 Book an Appointment</h2>
-
-    <p>Fill in the details to submit an appointment request.</p>
-
-    <form onsubmit="bookAppointment(event)">
-
-        <input
-            type="text"
-            id="patientName"
-            placeholder="Enter your name"
-            required
-        >
-
-        <br><br>
-
-        <select id="department" required>
-            <option value="">Select Department</option>
-            <option value="General Medicine">General Medicine</option>
-            <option value="Dermatology">Dermatology</option>
-            <option value="Cardiology">Cardiology</option>
-            <option value="Ophthalmology">Ophthalmology</option>
-            <option value="ENT">ENT</option>
-            <option value="Pediatrics">Pediatrics</option>
-        </select>
-
-        <br><br>
-
-        <input
-            type="date"
-            id="appointmentDate"
-            required
-        >
-
-        <br><br>
-
-        <button type="submit">
-            Submit Appointment
-        </button>
-
-    </form>
-
-    <div id="appointmentResult"></div>
-
-</section><section id="about">
-
-        <h2>About MediGuide</h2>
+    <div>
+        <h2>🚑 Emergency Services</h2>
 
         <p>
-            MediGuide is a healthcare guidance platform
-            designed to help users understand their
-            healthcare options and find appropriate
-            medical services.
+            For emergencies, please contact the hospital
+            emergency department directly.
         </p>
+    </div>
 
-    </section>
-
-
-    <!-- Emergency Section -->
-<section id="emergency">
-
-    <h2>🚑 Emergency Guidance</h2>
-
-    <p>
-        If you are experiencing a serious or life-threatening
-        situation, seek immediate medical attention.
-    </p>
-
-    <button onclick="showEmergency()">
-        Show Emergency Guidance
-    </button>
-
-    <div id="emergencyResult"></div>
+    <a href="tel:108" class="emergency-btn">
+        ☎ Emergency: 108
+    </a>
 
 </section>
+
 
 <footer>
 
-    <p>© 2026 MediGuide</p>
+    <div>
+        <h3>🏥 Government Hospital</h3>
+
+        <p>
+            Digital Doctor Availability & Patient Information System
+        </p>
+    </div>
+
+    <div>
+        <h4>Quick Links</h4>
+
+        <a href="doctors.html">Doctors</a>
+        <a href="departments.html">Departments</a>
+        <a href="appointment.html">Token</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div>
+        <h4>Languages</h4>
+
+        <p>English | मराठी | हिंदी</p>
+    </div>
 
 </footer>
 
-<script src="script.js"></script>
+<div class="copyright">
+    © 2026 Government Hospital. All Rights Reserved.
+</div>
+
+
+<script src="js/script.js"></script>
 
 </body>
-
 </html>
 
        
