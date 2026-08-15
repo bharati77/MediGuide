@@ -176,3 +176,55 @@ async function generateToken(event) {
     }
 
 }
+// ===============================
+// BACKEND: DOCTOR AVAILABILITY
+// ===============================
+
+const BACKEND_URL = "https://mediguide-backend-1exq.onrender.com";
+
+async function loadDoctorsFromBackend() {
+    try {
+        const response = await fetch(`${BACKEND_URL}/api/doctors`);
+        const data = await response.json();
+
+        if (!data.success || !Array.isArray(data.doctors)) {
+            console.error("Doctor data could not be loaded.");
+            return;
+        }
+
+        console.log("Doctors loaded from backend:", data.doctors);
+
+        data.doctors.forEach(doctor => {
+            const doctorName = doctor.name.toLowerCase();
+
+            document.querySelectorAll("body *").forEach(element => {
+                if (
+                    element.children.length === 0 &&
+                    element.textContent.trim().toLowerCase() === doctorName
+                ) {
+                    if (element.parentElement.querySelector(".backend-availability")) {
+                        return;
+                    }
+
+                    const status = document.createElement("span");
+                    status.className = "backend-availability";
+
+                    status.textContent = doctor.available
+                        ? " ● Available"
+                        : " ● Not Available";
+
+                    status.style.marginLeft = "10px";
+                    status.style.fontWeight = "600";
+                    status.style.color = doctor.available ? "green" : "red";
+
+                    element.parentElement.appendChild(status);
+                }
+            });
+        });
+
+    } catch (error) {
+        console.error("Backend connection error:", error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadDoctorsFromBackend);
