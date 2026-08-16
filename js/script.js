@@ -105,7 +105,7 @@ async function generateToken(event) {
                 },
 
                 body: JSON.stringify({
-                    name: name,
+                    patientName: name,
                     department: department,
                     doctor: doctor
                 })
