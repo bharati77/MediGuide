@@ -130,7 +130,7 @@ async function generateToken(event) {
 
                 <h2>🎫 Token Generated</h2>
 
-                <h1>${data.token}</h1>
+               <h1>${data.patientToken.tokenNumber}</h1>
 
                 <p>
                     Patient:
