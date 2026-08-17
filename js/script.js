@@ -96,7 +96,7 @@ async function generateToken(event) {
     try {
 
         const response = await fetch(
-    "https://mediguide-backend-1eqv.onrender.com/api/patient-tokens",
+    "https://mediguide-backend-1exq.onrender.com/api/patient-tokens",
             {
                 method: "POST",
 
